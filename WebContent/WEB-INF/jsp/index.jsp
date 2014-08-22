@@ -20,13 +20,26 @@
 		</ul>
 	</div>
 	
-	<div>
-		<p>Editor menu</p>
-		
-		<a href="createPost?type=text">Create text post</a><br>
-		<a href="createPost?type=photo">Create photo post</a><br>
-		<a href="createPost?type=video">Create video post</a><br>
-	</div>
+	
+	<c:if test="${isLoggedin}">
+		<div>
+			<p>Editor menu</p>
+			
+			<a href="createPost?type=text">Create text post</a><br>
+			<a href="createPost?type=photo">Create photo post</a><br>
+			<a href="createPost?type=video">Create video post</a><br>
+		</div>
+	</c:if>
+	
+	<c:if test="${isLoggedin == false}">
+		<div>
+			<form action="login" method="post">
+				<input type="text" name="username" placeholder="username"> <br>
+				<input type="password" name="password" placeholder="password"> <br>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+	</c:if>
 
 </body>
 </html>

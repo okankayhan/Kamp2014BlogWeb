@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import tr.org.linux.kamp.model.Post;
 import tr.org.linux.kamp.service.PostService;
@@ -26,6 +27,17 @@ public class HomeController extends HttpServlet{
 		Collection<Post> allPosts =  postService.getAllPosts();
 		req.setAttribute("posts", allPosts);
 		
+		HttpSession session = req.getSession();
+		Object object = session.getAttribute("isLoggedin");
+		
+		boolean isLoggedin = false;
+		
+		if(object != null){
+			isLoggedin = (boolean) object;
+		}
+		
+		req.setAttribute("isLoggedin", isLoggedin);
+		
 		req.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(req, resp);
 		
 	}
@@ -39,6 +51,17 @@ public class HomeController extends HttpServlet{
 		PostService postService = new PostService();
 		Collection<Post> allPosts =  postService.getAllPosts();
 		req.setAttribute("posts", allPosts);
+		
+		HttpSession session = req.getSession();
+		Object object = session.getAttribute("isLoggedin");
+		
+		boolean isLoggedin = false;
+		
+		if(object != null){
+			isLoggedin = (boolean) object;
+		}
+		
+		req.setAttribute("isLoggedin", isLoggedin);
 		
 		req.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(req, resp);
 	}

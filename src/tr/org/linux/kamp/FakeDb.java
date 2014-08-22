@@ -22,11 +22,33 @@ public class FakeDb {
 		return true;
 	}
 	
+	public static boolean save(User user){
+		userStorage.put(user.getId(), user);
+		return true;
+	}
+	
 	public static Collection<Post> getAllPosts(){
 		return postStorage.values();
 	}
 
 	public static Post getById(String id) {
 		return postStorage.get(id);
+	}
+
+	public static boolean checkAuthentication(String username, String password) {
+		for (User user : FakeDb.userStorage.values()) {
+
+			try {
+
+				if (user.getUsername().equals(username)
+						&& user.getPassword().equals(password)) {
+					return true;
+				}
+
+			} catch (Exception e) {
+				// ignore
+			}
+		}
+		return false;
 	}
 }
