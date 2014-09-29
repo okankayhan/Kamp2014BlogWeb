@@ -1,5 +1,10 @@
 package tr.org.linux.kamp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="VIDEO_POST")
 public class VideoPost extends Post {
 
 	private String videoUrl;

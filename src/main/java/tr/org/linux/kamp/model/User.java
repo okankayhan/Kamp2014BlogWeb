@@ -1,11 +1,20 @@
 package tr.org.linux.kamp.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="USERS")
 public class User {
 
 	private String id;
 	private String username;
 	private String password;
 	private String address;
+	
 	
 	public User(String id, String username, String password, String address) {
 		super();
@@ -14,7 +23,9 @@ public class User {
 		this.password = password;
 		this.address = address;
 	}
-
+	@Id
+	@GeneratedValue
+	@Column(name = "USER_ID")
 	public String getId() {
 		return id;
 	}

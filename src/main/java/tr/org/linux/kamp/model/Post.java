@@ -1,5 +1,13 @@
 package tr.org.linux.kamp.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "POSTS")
 public abstract class Post {
 
 	private String id;
@@ -11,7 +19,17 @@ public abstract class Post {
 		this.title = title;
 		this.content = content;
 	}
+	@Id
+	@GeneratedValue
+	@Column(name = "USER_ID")
+	public String getId() {
+		return id;
+	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -27,13 +45,7 @@ public abstract class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	
+	
 
 }

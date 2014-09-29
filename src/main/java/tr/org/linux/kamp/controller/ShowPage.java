@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import tr.org.linux.kamp.model.PhotoPost;
 import tr.org.linux.kamp.model.Post;
-import tr.org.linux.kamp.model.TextPost;
 import tr.org.linux.kamp.model.VideoPost;
 import tr.org.linux.kamp.service.PostService;
 
